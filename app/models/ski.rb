@@ -1,9 +1,7 @@
 class Ski < ApplicationRecord
   has_many :bookings, dependent: :destroy
-  belongs_to :user
+  # belongs_to :user
   has_one_attached :photo
 
-  validates :types, presence: true
-  validates :price, presence: true
-  validates :size, presence: true
+  validates :types, :price, :size, :city, presence: true
 end

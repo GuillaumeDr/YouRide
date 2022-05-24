@@ -6,6 +6,7 @@ class SkisController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -18,7 +19,6 @@ class SkisController < ApplicationController
     if @ski.save
       redirect_to ski_path(@ski)
     else
-      raise
       render :new
     end
   end

@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_05_23_153314) do
 
 
@@ -51,7 +52,9 @@ ActiveRecord::Schema.define(version: 2022_05_23_153314) do
     t.bigint "ski_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["ski_id"], name: "index_bookings_on_ski_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "skis", force: :cascade do |t|
@@ -63,6 +66,8 @@ ActiveRecord::Schema.define(version: 2022_05_23_153314) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "city"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_skis_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,4 +87,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_153314) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "skis"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "skis", "users"
 end

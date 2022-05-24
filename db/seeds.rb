@@ -20,7 +20,8 @@ Ski.create!(types: "Rando", available: "available", poles: true, price: 40, size
 Ski.create!(types: "Rando", available: "available", poles: true, price: 200, size: 30, city: 'Roubaix', user_id: 2)
 Ski.create!(types: "Snow", available: "available", poles: true, price: 520, size: 120, city: 'Dijon', user_id: 2)
 
-# Booking.create!(status: "validate", end_date: "", start_date: "", ski_id: "11")
-# Booking.create!(status: "", end_date: "", start_date: "", ski_id: "15")
+#Booking.create!(status: "validate", end_date: "", start_date: "", ski_id: "11")
+#Booking.create!(status: "", end_date: "", start_date: "", ski_id: "15")
+
 
 puts"end"

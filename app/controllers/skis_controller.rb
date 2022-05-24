@@ -37,7 +37,7 @@ class SkisController < ApplicationController
   private
 
   def ski_params
-    params.require(:ski).permit(:type, :available, :poles, :price, :size, :photo)
+    params.require(:ski).permit(:types, :available, :poles, :price, :size, :photo)
   end
 
   def set_ski

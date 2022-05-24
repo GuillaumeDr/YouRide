@@ -33,7 +33,7 @@ class SkisController < ApplicationController
 
   def destroy
     @ski.destroy
-    redirect_to skis_path
+    redirect_to root_path
   end
 
   private

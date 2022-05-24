@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-  # belongs_to :current_ski
-  # belongs_to :user, through: :ski
+  belongs_to :ski
+  belongs_to :user
   after_initialize :init
 
   # validates :start_date, :end_date, presence: true

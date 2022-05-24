@@ -1,3 +1,39 @@
-<h1>this is show of skis</h1>
+<div class="container">
 
-<h1><%= @ski.types %></h1>
+  <div class="text-align-left margin-top-10">
+    <h1> <%= @ski.types%>, <%= @ski.city %> </h1>
+  </div>
+
+  <div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170)">
+  </div>
+
+  <div class="container">
+   <p>Size: <%= @ski.size %> </p>
+   <% if @poles = true %>
+     <p>Poles are included </p>
+   <% else %>
+     <p>Poles are not included </p>
+   <% end %>
+   <p>This model is <%= @ski.available %> </p>
+  </div>
+
+  <div class="container">
+    <div class="row mt-5 justify-content-center">
+      <div class="col-4">
+        <h3> <%=@ski.price%>€ / day </h3>
+        <div class="container">
+          <%# <%= simple_form_for [@current_ski, @booking] do |f| %>
+            <%# <%= f.input :start_date, as: :date, html5: true  %>
+            <%# <%= f.input :end_date, as: :datepicker %>
+            <%# <%= f.submit :Book %>
+          <%# <% end %>
+          <p>The total rental price includes VAT and all applicable charges</p>
+        </div>
+        <h3>Total</h3>
+    </div>
+  </div>
+
+<%# <%= f.input :start_date, as: :datepicker %>
+<%# <%= f.input :start_date, as: :date, html5: true  %>
+
+</div>

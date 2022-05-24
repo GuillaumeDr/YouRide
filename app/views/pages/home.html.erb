@@ -11,15 +11,19 @@
       <div class="col-3">
         <%= link_to ski_path(ski) do %>
           <div class="ski-card card mt-5" style="width: 18rem;">
-            <%= image_tag("https://images.unsplash.com/photo-1612221075041-fcac94648403?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870", class: "ski-card-image")%>
+              <% if ski.photo.attached? %>
+               <img class="card-img-top mb-4", src='<%= cl_image_path ski.photo.key, height: 300, width: 400, crop: :fill %>'>
+              <% else %>
+                <img class="card-img-top mb-4", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+              <% end %>
             <div class="card-body">
-              <h5 class="card-title"><%= ski.types %></h5>
-              <p class="card-text"><%= ski.price %>€ / day</p>
+             <h5 class="card-title"><%= ski.types %></h5>
+             <p class="card-text"><%= ski.price %>€ / day</p>
             </div>
           </div>
         <% end %>
-      </div>
-    <% end %>
+       </div>
+     <% end %>
     </div>
   </div>
 </div>

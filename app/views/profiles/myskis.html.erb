@@ -1,0 +1,28 @@
+<div class="container">
+<h2 class="mt-5">My equipment</h2>
+<% @myskis.each do |ski| %>
+
+    <div class="card-myskis mt-3">
+      <%= link_to ski_path(ski) do %>
+        <% if ski.photo.attached? %>
+          <img class="card-img-top", src='<%= cl_image_path ski.photo.key, crop: :fill %>'>
+        <% else %>
+          <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+        <% end %>
+      <% end %>
+      <div class="card-myskis-infos">
+        <h2><%= ski.types %></h2>
+        <p><%= ski.price %>€ / day</p>
+        <div class="icon">
+          <%= link_to edit_ski_path(ski) do %>
+            <%= fa_icon "edit" %>
+          <% end %>
+          <%= link_to myskis_path, method: :delete do %>
+            <%= fa_icon "trash" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+</div>

@@ -42,3 +42,6 @@
 <%# <%= f.input :start_date, as: :date, html5: true  %>
 
 </div>
+
+<%= link_to "Delete ski", ski_path(@ski), class: "btn btn-warning", method: :delete  %>
+<%= link_to "Edit ski", edit_ski_path(@ski), class: "btn btn-warning" %>

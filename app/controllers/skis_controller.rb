@@ -18,7 +18,6 @@ class SkisController < ApplicationController
     if @ski.save
       redirect_to ski_path(@ski)
     else
-      raise
       render :new
     end
   end
@@ -33,7 +32,7 @@ class SkisController < ApplicationController
 
   def destroy
     @ski.destroy
-    redirect_to skis_path
+    redirect_to root_path
   end
 
   private

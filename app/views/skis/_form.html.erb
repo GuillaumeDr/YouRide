@@ -1,0 +1,12 @@
+
+
+  <%= simple_form_for(ski) do |f| %>
+    <%= f.select :types, [ 'Alpin', 'Downhill', 'Cross-country', 'Nordic', 'Snow' ], :prompt => 'Select One' %>
+    <%= f.input :available %>
+    <%= f.input :poles %>
+    <%= f.input :price %>
+    <%= f.input :size %>
+    <%= f.input :city %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>

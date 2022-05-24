@@ -9,16 +9,18 @@
 
 puts "start"
 
-Booking.destroy_all
+
 Ski.destroy_all
 
-Ski.create!(types: "Alpin", available: "available", poles: true, price: 50, size: 100, city: 'London')
-Ski.create!(types: "Nordique", available: "available", poles: true, price: 30, size: 170, city: 'Paris')
-Ski.create!(types: "rando", available: "available", poles: true, price: 40, size: 160, city: 'Lille')
-Ski.create!(types: "rando", available: "available", poles: true, price: 200, size: 30, city: 'Roubaix')
-Ski.create!(types: "Snow", available: "available", poles: true, price: 520, size: 120, city: 'Dijon')
+User.create!(email: "test1@gmail.com", password: "azerty", first_name: "test1", last_name: "test1")
+User.create!(email: "test2@gmail.com", password: "azerty", first_name: "test2", last_name: "test2")
+Ski.create!(types: "Alpin", available: "available", poles: true, price: 50, size: 100, city: 'London', user_id: 1)
+Ski.create!(types: "Nordique", available: "available", poles: true, price: 30, size: 170, city: 'Paris', user_id: 1)
+Ski.create!(types: "Rando", available: "available", poles: true, price: 40, size: 160, city: 'Lille', user_id: 1)
+Ski.create!(types: "Rando", available: "available", poles: true, price: 200, size: 30, city: 'Roubaix', user_id: 2)
+Ski.create!(types: "Snow", available: "available", poles: true, price: 520, size: 120, city: 'Dijon', user_id: 2)
 
-Booking.create!(status: "validate", end_date: "", start_date: "", ski_id: "11")
-Booking.create!(status: "", end_date: "", start_date: "", ski_id: "15")
+# Booking.create!(status: "validate", end_date: "", start_date: "", ski_id: "11")
+# Booking.create!(status: "", end_date: "", start_date: "", ski_id: "15")
 
 puts"end"

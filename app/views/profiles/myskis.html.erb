@@ -17,7 +17,7 @@
           <%= link_to edit_ski_path(ski) do %>
             <%= fa_icon "edit" %>
           <% end %>
-          <%= link_to myskis_path, method: :delete do %>
+          <%= link_to ski_path(ski), method: :delete do %>
             <%= fa_icon "trash" %>
           <% end %>
         </div>

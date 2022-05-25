@@ -1,14 +1,59 @@
+.ski-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 22px;
+}
+
+@media(max-width: 1200px) {
+  .ski-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 900px) {
+  .ski-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 580px) {
+  .ski-cards {
+    grid-template-columns: 1fr;
+    width: 300px;
+  }
+}
+
 .ski-card {
-  color: black;
+  margin-top: 40px;
+}
+
+.ski-card-body {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  h5 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+}
+
+.ski-card-rating {
+  font-size: 13px;
+}
+
+.ski-card-body i {
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.ski-card-img img {
   border-radius: 10px;
-  background-color: transparent;
+  height: 200px;
+  width: 100%;
 }
 
-.ski-card-image {
-  border-radius: 10px 10px 0 0;
-}
-
-
+//////////////////////////
 .card-product {
   overflow: hidden;
   height: 400px;
@@ -29,6 +74,15 @@
   font-size: 20px;
 }
 
+.card-product p {
+  font-size: 16px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+//////////////////////////
 .card-myskis {
   overflow: hidden;
   height: 100px;
@@ -51,11 +105,6 @@
   margin: 0;
 }
 
-
-.card-product p {
-  font-size: 16px;
-}
-
 .card-myskis p {
   font-size: 12px;
 
@@ -65,19 +114,19 @@
   margin-top: 8px;
 }
 
-
-.card-product .card-product-infos {
-  padding: 16px;
-}
-
 .card-myskis .card-myskis-infos {
   padding: 16px;
 }
 
 .icon i {
-  color: gray;
+  color: black;
+  opacity: 0.20;
   margin-top: 12px;
   font-size: 15px;
+}
+
+.icon i:hover {
+  opacity: 1;
 }
 
 .fa-edit {

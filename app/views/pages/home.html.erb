@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1560567323-f2717380f855?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870);">
   <div class="container">
     <h1>You Ride</h1>
 
@@ -19,25 +19,31 @@
     </div>
 </div>
 
+
 <div class="container">
-  <div class="row">
+  <div class="ski-cards">
     <% @skis.each do |ski| %>
-      <div class="col-3">
+      <div class="ski-card">
         <%= link_to ski_path(ski) do %>
-          <div class="ski-card card mt-5" style="width: 18rem;">
-              <% if ski.photo.attached? %>
-               <img class="card-img-top mb-4", src='<%= cl_image_path ski.photo.key, height: 300, width: 400, crop: :fill %>'>
-              <% else %>
-                <img class="card-img-top mb-4", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
-              <% end %>
-            <div class="card-body">
-             <h5 class="card-title"><%= ski.types %></h5>
-             <p class="card-text"><%= ski.price %>€ / day</p>
-            </div>
+          <div class="ski-card-img">
+            <% if ski.photo.attached? %>
+              <%= cl_image_tag ski.photo.key, crop: :fill %>
+            <% else %>
+              <img src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+            <% end %>
           </div>
         <% end %>
-       </div>
-     <% end %>
-    </div>
+          <div class="ski-card-body">
+            <h5 class="card-title"><%= ski.types %>, <%= ski.city %></h5>
+            <div class="ski-card-rating">
+              4,5<i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div>
+            <p class="card-text"><%= ski.price %>€ / day</p>
+          </div>
+
+      </div>
+    <% end %>
   </div>
 </div>

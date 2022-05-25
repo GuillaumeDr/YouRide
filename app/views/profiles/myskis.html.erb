@@ -1,6 +1,6 @@
 <div class="container">
 <h2 class="mt-5">My equipment</h2>
-<% @myskis.each do |ski| %>
+  <% @myskis.each do |ski| %>
 
     <div class="card-myskis mt-3">
       <%= link_to ski_path(ski) do %>
@@ -15,10 +15,10 @@
         <p><%= ski.price %>€ / day</p>
         <div class="icon">
           <%= link_to edit_ski_path(ski) do %>
-            <%= fa_icon "edit" %>
+            <i class="fa fa-edit"></i>
           <% end %>
           <%= link_to ski_path(ski), method: :delete do %>
-            <%= fa_icon "trash" %>
+            <i class="fa fa-trash" ></i>
           <% end %>
         </div>
       </div>

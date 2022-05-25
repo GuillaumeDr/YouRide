@@ -5,6 +5,21 @@ class SkisController < ApplicationController
     @skis = Ski.all
   end
 
+  def search
+
+    if params[:city].present?
+      @skis = Ski.where("city ILIKE ?", "%#{params[:city]}%")
+      @markers = @skis.geocoded.map do |ski|
+        {
+          lat: ski.latitude,
+          lng: ski.longitude
+        }
+      end
+    else
+      @skis = Ski.all
+    end
+  end
+
   def show
     @booking = Booking.new
   end

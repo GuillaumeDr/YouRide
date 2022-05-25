@@ -8,25 +8,48 @@
   border-radius: 10px 10px 0 0;
 }
 
+.card-img-top {
+  margin-right: 15px;
+}
 
 .card-product {
   overflow: hidden;
-  height: 400px;
-  background: white;
+  height: 95%;
+  background: rgba(255, 255, 255, 0.758);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 10px 0px;
+  margin: 0px 0px;
+  padding: 20 0;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: BLACK;
+  border-radius: 5px;
+  position: relative;
+  margin: 10px 8px;
 }
 
 .card-product img {
-  height: 100%;
+  height: 180px;
   width: 120px;
   object-fit: cover;
 }
 
 .card-product h2 {
   font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.card-product p {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }
 
 .card-myskis {
@@ -51,11 +74,6 @@
   margin: 0;
 }
 
-
-.card-product p {
-  font-size: 16px;
-}
-
 .card-myskis p {
   font-size: 12px;
 
@@ -63,11 +81,6 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
-}
-
-
-.card-product .card-product-infos {
-  padding: 16px;
 }
 
 .card-myskis .card-myskis-infos {
@@ -82,4 +95,24 @@
 
 .fa-edit {
   margin-left: 122px;
+}
+
+.card-show {
+  overflow: hidden;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  margin: 0px 0px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: BLACK;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: white;
+  position: relative;
+  margin: 50px 0px;
 }

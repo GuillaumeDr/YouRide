@@ -1,8 +1,8 @@
 <div class="container">
 <div class="d-flex justify-content-around">
   <div class="card-show row">
-    <div class="col-6">
-      <div class="col-2 text-align-left">
+    <div class="col-8 d-flex">
+      <div class="col-4">
         <% if @ski.photo.attached? %>
           <img class="card-img-top", src='<%= cl_image_path @ski.photo.key, height: 300, width: 400, crop: :fill %>'>
         <% else %>
@@ -22,13 +22,13 @@
           <% end %>
           <p>Disponibility: <%= @ski.available %> </p>
           <p>Référence: <%=@ski.id%><%=(@ski.user.id)%><%=(@ski.types).downcase%><%=(@ski.user.last_name).downcase%></p>
-          <p class="font-weight-bold"> Rented by <%=@ski.user.first_name %> <%=@ski.user.first_name%></p>
+          <p class="font-weight-bold"> Rented by <%=@ski.user.first_name %></p>
         </div>
       </div>
     </div>
 
-    <div class="col-6">
-      <div class="card-product row mt-5">
+    <div class="col-4">
+      <div class="card-product row mt-5 p-3">
         <div>
           <h3><strong><%=@ski.price%>€ / day </strong></h3>
           <br>

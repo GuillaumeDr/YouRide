@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row d-flex justify-content-around">
+  <div class="row d-flex justify-content-between">
     <h2 class="mt-5">My equipments</h2>
     <% @myskis.each do |ski| %>
 
@@ -12,7 +12,8 @@
           <% end %>
         <% end %>
         <div class="card-myskis-infos">
-          <h2><%= ski.types %>, <%= ski.city %></h2>
+          <h2><%= ski.types %></h2>
+          <p><strong><%= ski.city %></strong></p>
           <p><%= ski.price %>€ / day</p>
           <div class="icon">
             <%= link_to edit_ski_path(ski) do %>

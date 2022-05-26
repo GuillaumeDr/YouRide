@@ -1,14 +1,14 @@
-<div class="banner-search">
-  <div class="container">
+<div class="banner-search first">
+  <div>
         <%= form_tag skis_search_path, method: :get,class: "form-inline" do %>
             <div class="d-flex justify-content-center">
               <%= text_field_tag :city,
                 params[:city],
-                class: "form-control form-custom",
+                class: "form-control form-custom-search",
                 placeholder: "Which city ?" %>
               <%= select_tag :type,
                 options_for_select([ 'All type', 'Alpine skis', 'Downhill skis', 'Cross-country skis', 'Nordic skis', 'Snowboard' ], params[:type]),
-                class: "form-control form-custom" %>
+                class: "form-control form-custom-search" %>
               <%= submit_tag "Search", class: "btn btn-primary" %>
            </div>
         <% end %>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get "/skis/search", to: "skis#search"
   resources :skis do
     resources :bookings, only: [ :new, :create, :update ]
+    resources :reviews, only: [ :new, :create ]
   end
 
   get "/myskis", to: "profiles#myskis"

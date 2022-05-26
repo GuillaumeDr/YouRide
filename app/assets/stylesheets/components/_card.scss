@@ -4,6 +4,12 @@
   grid-gap: 22px;
 }
 
+.ski-cards-search {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 22px;
+}
+
 @media(max-width: 1200px) {
   .ski-cards {
     grid-template-columns: 1fr 1fr 1fr;
@@ -25,6 +31,10 @@
 
 .ski-card {
   margin-top: 40px;
+}
+
+.ski-card-search {
+  margin-top: 0px;
 }
 
 .ski-card-body {
@@ -277,4 +287,10 @@ font-family: 'EB Garamond', serif;
 .booking-image:hover img {
   transition: all 0.3s ease-out;
   transform: scale(1.2, 1.2);
+}
+
+.card-reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 22px;
 }

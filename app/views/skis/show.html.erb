@@ -1,50 +1,52 @@
 <div class="container">
-<div class="d-flex justify-content-around">
-  <div class="card-show row">
-    <div class="col-8 d-flex">
-      <div class="col-4">
-        <% if @ski.photo.attached? %>
-          <img class="card-img-top", src='<%= cl_image_path @ski.photo.key, height: 300, width: 400, crop: :fill %>'>
-        <% else %>
-          <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170'>
-        <% end %>
-      </div>
-      <div class="card-product-infos col-4">
-        <h1 class="font-weight-bold"><strong><%= @ski.types%>, <%= @ski.city %></strong></h1>
-        <br>
-        <div class="container mt-15">
-          <h4 class="font-weight-bold" >Informations</h4>
-          <p>Size: <%= @ski.size %> </p>
-          <% if @poles = true %>
-            <p>Poles: included </p>
+  <div class="d-flex justify-content-around">
+    <div class="card-show row">
+      <div class="col-8 d-flex">
+        <div class="col-4">
+          <% if @ski.photo.attached? %>
+            <img class="card-img-top", src='<%= cl_image_path @ski.photo.key, height: 300, width: 400, crop: :fill %>'>
           <% else %>
-            <p>Poles: not included </p>
+            <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170'>
           <% end %>
-          <p>Disponibility: <%= @ski.available %> </p>
-          <p>Référence: <%=@ski.id%><%=(@ski.user.id)%><%=(@ski.types).downcase%><%=(@ski.user.last_name).downcase%></p>
-          <p class="font-weight-bold"> Rented by <%=@ski.user.first_name %></p>
+        </div>
+        <div class="card-product-infos col-4">
+          <h1 class="font-weight-bold"><strong><%= @ski.types%>, <%= @ski.city %></strong></h1>
+          <br>
+          <div class="container mt-15">
+            <h4 class="font-weight-bold" >Informations</h4>
+            <p>Size: <%= @ski.size %> </p>
+            <% if @poles = true %>
+              <p>Poles: included </p>
+            <% else %>
+              <p>Poles: not included </p>
+            <% end %>
+            <p>Disponibility: <%= @ski.available %> </p>
+            <p>Référence: <%=@ski.id%><%=(@ski.user.id)%><%=(@ski.types).downcase%><%=(@ski.user.last_name).downcase%></p>
+            <p class="font-weight-bold"> Rented by <%=@ski.user.first_name %><%=@ski.user.last_name %></p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-4">
-      <div class="card-product row mt-5 p-3">
-        <div>
-          <h3><strong><%=@ski.price%>€ / day </strong></h3>
-          <br>
-          <div class="card-product-info">
-            <%= simple_form_for [@ski, @booking] do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
-              <%= f.submit :Book %>
-            <% end %>
+      <div class="col-4">
+        <div class="card-product row mt-5 p-3">
+          <div>
+            <h3><strong><%=@ski.price%>€ / day </strong></h3>
             <br>
-            <p>The total rental price includes VAT and all applicable charges</p>
-          </div>
+            <div class="card-product-info">
+              <%= simple_form_for [@ski, @booking] do |f| %>
+                <%= f.input :start_date%>
+                <%= f.input :end_date%>
+                <%= f.submit :Book, class: "btn btn-dark rounded" %>
+              <% end %>
+              <br>
+              <p>The total rental price includes VAT and all applicable charges</p>
+            </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 </div>
 
 

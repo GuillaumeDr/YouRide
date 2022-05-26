@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   get "/myskis", to: "profiles#myskis"
-
+  get "/reservations", to: "profiles#reservations"
 
 end

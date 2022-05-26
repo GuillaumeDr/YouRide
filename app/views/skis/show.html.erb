@@ -1,83 +1,76 @@
-<div class="container">
-<div class="d-flex justify-content-around">
-  <div class="card-show row">
-    <div class="col-8 d-flex">
-      <div class="col-4">
-        <% if @ski.photo.attached? %>
-          <img class="card-img-top", src='<%= cl_image_path @ski.photo.key, height: 300, width: 400, crop: :fill %>'>
-        <% else %>
-          <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170'>
-        <% end %>
-      </div>
-      <div class="card-product-infos col-4">
-        <h1 class="font-weight-bold"><strong><%= @ski.types%>, <%= @ski.city %></strong></h1>
+<div class="all-product">
+
+  <div class="product">
+    <div class="info">
+      <div class="title">
+        <h1><%= @ski.types%>, <%= @ski.city %></h1>
         <br>
-        <div class="container mt-15">
-          <h4 class="font-weight-bold" >Informations</h4>
-          <p>Size: <%= @ski.size %> </p>
-          <% if @poles = true %>
-            <p>Poles: included </p>
+        <div class="product-photo">
+          <% if @ski.photo.attached? %>
+            <img class="card-img-top", src='<%= cl_image_path @ski.photo.key, crop: :fill %>'>
           <% else %>
-            <p>Poles: not included </p>
+            <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170'>
           <% end %>
-          <p>Disponibility: <%= @ski.available %> </p>
-          <p>Référence: <%=@ski.id%><%=(@ski.user.id)%><%=(@ski.types).downcase%><%=(@ski.user.last_name).downcase%></p>
-          <p class="font-weight-bold"> Rented by <%=@ski.user.first_name %></p>
         </div>
       </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card-product row mt-5 p-3">
-        <div>
-          <h3><strong><%=@ski.price%>€ / day </strong></h3>
-          <br>
-          <div class="card-product-info">
-            <%= simple_form_for [@ski, @booking] do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
-              <%= f.submit :Book %>
-            <% end %>
-            <br>
-            <p>The total rental price includes VAT and all applicable charges</p>
-          </div>
+      <div class="product-info">
+        <h4>Informations :</h4>
+        <p>Size: <%= @ski.size %> </p>
+        <% if @poles = true %>
+          <p>Poles: included </p>
+        <% else %>
+          <p>Poles: not included </p>
+        <% end %>
+        <p>Disponibility: <%= @ski.available %> </p>
+        <p>Référence: <%=@ski.id%><%=(@ski.user.id)%><%=(@ski.types).downcase%><%=(@ski.user.last_name).downcase%></p>
+        <p>Rented by <%=@ski.user.first_name %></p>
       </div>
     </div>
-  </div>
-</div>
-</div>
 
+    <div class="rating">
+      <i class="fas fa-star"></i><%= @ski.average %> -
+      <%= Review.where(ski_id: @ski.id).count %> Reviews</strong>
+      </div>
 
-<div class="rating">
-  <i class="fas fa-star"></i><%= @ski.average %> -
-  <%= Review.where(ski_id: @ski.id).count %> Reviews</strong>
-</div>
-
-<div class="card-reviews mt-3">
-  <% @ski.reviews.each do |review| %>
-  <div class="card-review">
-    <p>Post by <%=review.user.first_name %></p>
-    <% if review.rating == 1 %>
-      <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-    <% elsif review.rating == 2 %>
-      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-    <% elsif review.rating == 3 %>
-      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-    <% elsif review.rating == 4 %>
-      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-    <% elsif review.rating == 5 %>
-      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+    <div class="card-reviews mt-3">
+    <% @ski.reviews.each do |review| %>
+      <div class="card-review">
+        <p>Post by <%=review.user.first_name %></p>
+        <p>
+          <% Review::AUTHORIZED_RATINGS.each do |number| %>
+            <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+          <% end %>
+          <p><%= review.comment %></p>
+        </p>
+      </div>
     <% end %>
-    <p><%= review.comment %></p>
-  </div>
-  <% end %>
-</div>
+    </div>
 
-<div class="add-review">
-  <h3>Add review :</h3>
-  <%= simple_form_for [ @ski, @review ] do |f| %>
-    <%= f.input :rating %>
-    <%= f.input :comment %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-  <% end %>
+    <div class="add-review">
+      <h3>Add review :</h3>
+      <%= simple_form_for [ @ski, @review ] do |f| %>
+        <%= f.input :rating, as: :hidden %>
+      <div class="my-3">
+        <% Review::AUTHORIZED_RATINGS.each do |index| %>
+          <i id="<%= index %>" class="review-rating far fa-star"></i>
+        <% end %>
+      </div>
+        <%= f.input :comment %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="booking">
+    <h3><strong><%=@ski.price%>€ / day </strong></h3>
+    <div>
+      <%= simple_form_for [@ski, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit :Book %>
+      <% end %>
+      <br>
+      <p>The total rental price includes VAT and all applicable charges</p>
+    </div>
+  </div>
 </div>

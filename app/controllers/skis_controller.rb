@@ -6,17 +6,27 @@ class SkisController < ApplicationController
   end
 
   def search
-
     if params[:city].present?
-      @skis = Ski.where("city ILIKE ?", "%#{params[:city]}%")
-      @markers = @skis.geocoded.map do |ski|
-        {
-          lat: ski.latitude,
-          lng: ski.longitude
-        }
+      @skis = Ski.near("%#{params[:city]}%", 10)
+      search_types
+      if @skis.present? == false
+        @skis = Ski.near("%#{params[:city]}%", 200)
+        search_types
+      end
+      if @skis.present? == false
+        @skis = Ski.all
+        search_types
+        @message = "Nothing find close to "
       end
     else
       @skis = Ski.all
+      search_types
+    end
+    @markers = @skis.geocoded.map do |ski|
+      {
+        lat: ski.latitude,
+        lng: ski.longitude
+      }
     end
   end
 
@@ -59,5 +69,11 @@ class SkisController < ApplicationController
 
   def set_ski
     @ski = Ski.find(params[:id])
+  end
+
+  def search_types
+    if params[:type].present? && params[:type] != "All type"
+      @skis = @skis.where("types ILIKE ?", "%#{params[:type]}%")
+    end
   end
 end

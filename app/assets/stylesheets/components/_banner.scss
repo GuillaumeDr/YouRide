@@ -4,6 +4,14 @@
   padding: 170px 0 8px 0;
 }
 
+.banner-search {
+  background-size: cover;
+  background-position: center 80%;
+  padding: 8px 0 8px 0;
+  position: sticky;
+  top: 0px;
+}
+
 .banner h1 {
   margin: 0;
   color: white;
@@ -18,4 +26,21 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   margin-bottom: 100px;
+}
+
+
+.banner-search h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner-search p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
 }

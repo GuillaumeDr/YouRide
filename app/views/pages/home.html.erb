@@ -5,14 +5,13 @@
     <p>Rental of ski equipment between individuals.</p>
         <%= form_tag skis_search_path, method: :get,class: "form-inline" do %>
             <div class="d-flex justify-content-center">
-              <%= text_field_tag :type,
-                params[:type],
-                class: "form-control form-custom",
-                placeholder: "Type of ski ?" %>
               <%= text_field_tag :city,
                 params[:city],
                 class: "form-control form-custom",
                 placeholder: "Which city ?" %>
+              <%= select_tag :type,
+                options_for_select([ 'All type', 'Alpine skis', 'Downhill skis', 'Cross-country skis', 'Nordic skis', 'Snowboard' ], params[:type]),
+                class: "form-control form-custom" %>
               <%= submit_tag "Search", class: "btn btn-primary" %>
            </div>
         <% end %>
@@ -42,7 +41,6 @@
           <div>
             <p class="card-text"><%= ski.price %>€ / day</p>
           </div>
-
       </div>
     <% end %>
   </div>

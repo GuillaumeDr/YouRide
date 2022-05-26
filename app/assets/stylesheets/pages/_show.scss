@@ -1,0 +1,16 @@
+.rating {
+  display: flex;
+  font-size: 22px;
+  font-weight: bold;
+  i {
+    font-size: 16px;
+    margin-left: 0;
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+}
+
+.add-review {
+  margin-top: 20px;
+  width: 400px;
+}

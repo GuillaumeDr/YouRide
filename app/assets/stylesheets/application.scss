@@ -13,6 +13,20 @@
 @import "components/index";
 @import "pages/index";
 
+// app/assets/stylesheets/application.scss
+// [...]
+@import "flatpickr/dist/flatpickr";
+
 a {
   text-decoration: none;
+}
+
+.fa-star {
+  color:  #F66B0E;
+  font-size: 18px;
+}
+
+.review-rating {
+  cursor:    pointer;
+  font-size: 2rem;
 }

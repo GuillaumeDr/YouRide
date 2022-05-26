@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
+  AUTHORIZED_RATINGS = (1..5)
+
   belongs_to :ski
   belongs_to :user
-  validates :rating, presence: true, numericality: { only_integer: true }, inclusion: { in: (0..5) }
+  validates :rating, inclusion: { in: AUTHORIZED_RATINGS }
   validates :comment, presence: true
 end

@@ -22,10 +22,21 @@
   padding: 8px 0px;
   width: 100px;
 }
+
 .btn-form{
   background-color: #EFEFEF;
   color: #F66B0E;
   border-radius: 8px;
   border-color: #F66B0E;
   font-size: 12px;
+}
+
+.btn-search {
+  color: white;
+  background-color: #205375;
+  padding: 8px 24px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  margin-right: 20px;
+  border: 0;
 }

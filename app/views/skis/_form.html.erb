@@ -2,7 +2,6 @@
 
   <%= simple_form_for(ski) do |f| %>
     <%= f.select :types, [ 'Alpine skis', 'Downhill skis', 'Cross-country skis', 'Nordic skis', 'Snowboard' ], :prompt => 'Select One' %>
-    <%= f.input :available %>
     <%= f.input :poles %>
     <%= f.input :price %>
     <%= f.input :size %>

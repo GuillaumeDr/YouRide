@@ -20,7 +20,6 @@
             <% else %>
               <p>Poles: not included </p>
             <% end %>
-            <p>Disponibility: <%= @ski.available %> </p>
             <p>Référence: <%=@ski.id%><%=(@ski.user.id)%><%=(@ski.types).downcase%><%=(@ski.user.last_name).downcase%></p>
             <p class="font-weight-bold"> Rented by <%=@ski.user.first_name %><%=@ski.user.last_name %></p>
           </div>

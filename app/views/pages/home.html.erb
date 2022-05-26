@@ -35,7 +35,11 @@
           <div class="ski-card-body">
             <h5 class="card-title"><%= ski.types %>, <%= ski.city %></h5>
             <div class="ski-card-rating">
-              4,5<i class="fas fa-star"></i>
+              <% if ski.reviews.count > 0 %>
+              <%= ski.average %><i class="fas fa-star"></i>
+              <% else %>
+              <i class="far fa-star"></i>
+              <% end %>
             </div>
           </div>
           <div>

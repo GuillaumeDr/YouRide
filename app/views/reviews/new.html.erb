@@ -1,0 +1,5 @@
+<%= simple_form_for [ @ski, @review ] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>

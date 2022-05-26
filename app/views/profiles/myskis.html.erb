@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row d-flex justify-content-between">
+  <div class="row d-flex justify-content-beetween">
     <h2 class="mt-5">My equipments</h2>
     <% @myskis.each do |ski| %>
 
@@ -30,26 +30,45 @@
 </div>
 
 <div class="container">
-  <div class="row d-flex justify-content-around">
+  <div class="row d-flex justify-content-beetween">
     <h2 class="mt-5">Reservations</h2>
     <% @mybookings.each do |booking| %>
-      <div class="col-4">
-          <div class="card-product mt-3">
-            <%= link_to ski_path(booking) do %>
-              <% if booking.ski.photo.attached? %>
-                <img class="card-img-top", src='<%= cl_image_path booking.ski.photo.key, crop: :fill %>'>
-              <% else %>
-                <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+      <div class="col-6">
+          <div class="container-booking mt-3">
+            <div class="booking-image">
+              <%= link_to ski_path(booking) do %>
+                <% if booking.ski.photo.attached? %>
+                  <img class="card-img-top", src='<%= cl_image_path booking.ski.photo.key, crop: :fill %>'>
+                <% else %>
+                  <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+                <% end %>
               <% end %>
-            <% end %>
-            <div class="card-show-infos">
-              <h2><%= booking.ski.types%>, <%= booking.ski.city%> n°<%= booking.ski.id%> <br>
-              # Demand <%= booking.id%></h2>
-              <p>Status: <%= booking.status %></p>
-              <p>Renter: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-              <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+              <div class="info d-flex flex-column align-item-center">
+                <ul>
+                  <li><strong>Size : </strong><%= booking.ski.size %></li>
+                  <% if booking.ski.poles = true %>
+                    <li><strong>Poles : </strong>included</li>
+                  <% else %>
+                    <li><strong>Poles : </strong>not included</li>
+                  <% end %>
+                  <li><strong>Disponibility : </strong><%= booking.ski.available %> </li>
+                  <li><strong>Rented by : </strong><%=booking.ski.user.first_name %><%=booking.ski.user.last_name %></li>
+                  <li><strong>Référence : </strong><%=booking.ski.id%> <%=(booking.ski.user.id)%><%=(booking.ski.types).downcase%><%=(booking.ski.user.last_name).downcase%></li>
+                </ul>
+              </div>
             </div>
-        </div>
+            <div class="booking-details">
+              <h2><strong><%= booking.ski.types%>, <%= booking.ski.city%> n°<%= booking.ski.id%></strong><br>
+              # Demand <%= booking.id%></h2>
+              <p>Status : <%= booking.status %></p>
+              <p>Renter : <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+              <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+              <%= simple_form_for [booking.ski, booking] do |f| %>
+              <%= f.select :status, [ 'Accepted', 'Declined', 'Completed'], :prompt => 'Select One', class: "btn btn-dark" %>
+              <%= f.submit :Update, class: "btn btn-dark btn-sm" %>
+              <% end %>
+            </div>
+          </div>
       </div>
     <% end %>
   </div>

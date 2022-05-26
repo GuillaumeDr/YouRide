@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:update]
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -19,5 +20,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end

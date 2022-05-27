@@ -23,30 +23,31 @@ const initFlatpickr = () => {
       "disable": bookings,
     })
   }
-};
 
-const startDate = document.getElementById("range_start");
-const endDate = document.getElementById("range_end");
-const totalNights = document.getElementById("total-nights");
-const skiPricePerNight = document.getElementById("ski-price-per-day").innerText;
-const totalPriceElement = document.getElementById("total-price");
 
-const dynamicPrice = () => {
-  let dateDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value);
-  let nbrOfNights = dateDiffInMilliseconds / 86400000;
-  if(startDate.value && endDate.value) {
-    totalNights.innerText = nbrOfNights
-    totalPriceElement.innerText = nbrOfNights * skiPricePerNight
-  }
-};
 
-dynamicPrice();
+  const startDate = document.getElementById("range_start");
+  const endDate = document.getElementById("range_end");
+  if (startDate){
+    const dynamicPrice = () => {
+      const totalNights = document.getElementById("total-nights");
+      const skiPricePerNight = document.getElementById("ski-price-per-day").innerText;
+      const totalPriceElement = document.getElementById("total-price");
+      let dateDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value);
+      let nbrOfNights = dateDiffInMilliseconds / 86400000;
+      if(startDate.value && endDate.value) {
+        totalNights.innerText = nbrOfNights
+        totalPriceElement.innerText = nbrOfNights * skiPricePerNight
+      }
+    };
 
-[startDate, endDate].forEach(date => {
-  date.addEventListener("change", (event) => {
-    dynamicPrice();
-  });
-})
 
+    [startDate, endDate].forEach(date => {
+      date.addEventListener("change", (event) => {
+        dynamicPrice();
+      });
+    })
+  };
+}
 
 export { initFlatpickr };

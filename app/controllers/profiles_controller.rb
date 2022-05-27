@@ -7,5 +7,6 @@ class ProfilesController < ApplicationController
 
   def reservations
     @myreservations = current_user.bookings
+
   end
 end

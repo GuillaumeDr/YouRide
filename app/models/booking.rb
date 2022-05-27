@@ -8,4 +8,11 @@ class Booking < ApplicationRecord
   def init
     self.status  ||= "pending"           #will set the default value only if it's nil
   end
+
+  def getinfo
+    time = end_date.mjd - start_date.mjd
+    price = time * ski.price
+    return {time: time, price: price}
+  end
+
 end

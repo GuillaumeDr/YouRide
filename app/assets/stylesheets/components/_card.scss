@@ -61,11 +61,16 @@
 .card-img-top {
   margin-right: 15px;
 }
-
+.ski-card-img {
+  background-color: white;
+  border-radius: 10px;
+  height: 150px;
+  text-align: center;
+}
 .ski-card-img img {
   border-radius: 10px;
-  height: 200px;
-  width: 100%;
+  justify-content: center;
+  height: 100%;
 }
 ///////////////////////////////
 .card-product {

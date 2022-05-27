@@ -25,7 +25,9 @@ class SkisController < ApplicationController
     @markers = @skis.geocoded.map do |ski|
       {
         lat: ski.latitude,
-        lng: ski.longitude
+        lng: ski.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { ski: ski }),
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
       }
     end
   end

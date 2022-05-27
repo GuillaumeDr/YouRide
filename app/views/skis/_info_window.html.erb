@@ -1,0 +1,24 @@
+
+
+<div class="card-myskis ">
+  <%= link_to ski_path(ski) do %>
+    <% if ski.photo.attached? %>
+      <img class="card-img-top", src='<%= cl_image_path ski.photo.key, crop: :fill %>'>
+    <% else %>
+      <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+    <% end %>
+  <% end %>
+  <div class="card-myskis-infos">
+    <h2><%= ski.types %></h2>
+    <p><strong><%= ski.city %></strong></p>
+    <p><%= ski.price %>€ / day</p>
+    <div class="icon">
+      <%= link_to edit_ski_path(ski) do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+      <%= link_to ski_path(ski), method: :delete do %>
+        <i class="fa fa-trash" ></i>
+      <% end %>
+    </div>
+  </div>
+</div>

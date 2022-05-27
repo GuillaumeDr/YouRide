@@ -28,6 +28,8 @@
             <div class="booking-details">
               <h2><strong><%= reservation.ski.types%>, <%= reservation.ski.city%> n°<%= reservation.ski.id%> </strong><br>
               # Demand <%= reservation.id%></h2>
+              <h6 style="color: #112B3C;"><%= reservation.getinfo[:time] %> days</h6>
+              <h6 style="color: #112B3C;">Total price : <%= reservation.getinfo[:price] %> €</h6>
               <p>Owner: <%= reservation.ski.user.first_name %> <%= reservation.ski.user.last_name %></p>
               <p>From <%= reservation.start_date %> to <%= reservation.end_date %></p>
               <p>Status: <strong><%= reservation.status %></strong></p>

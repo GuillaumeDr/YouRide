@@ -1,27 +1,28 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row d-flex justify-content-beetween">
     <h2 class="mt-5">My equipments</h2>
     <% @myskis.each do |ski| %>
-
-      <div class="card-myskis mt-3">
-        <%= link_to ski_path(ski) do %>
-          <% if ski.photo.attached? %>
-            <img class="card-img-top", src='<%= cl_image_path ski.photo.key, crop: :fill %>'>
-          <% else %>
-            <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
+        <div class="card-myskis ">
+          <%= link_to ski_path(ski) do %>
+            <% if ski.photo.attached? %>
+              <img class="card-img-top", src='<%= cl_image_path ski.photo.key, crop: :fill %>'>
+            <% else %>
+              <img class="card-img-top", src='https://images.unsplash.com/photo-1622484446431-e4592de4a7ba?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170ss'>
+            <% end %>
           <% end %>
-        <% end %>
-        <div class="card-myskis-infos">
-          <h2><%= ski.types %></h2>
-          <p><strong><%= ski.city %></strong></p>
-          <p><%= ski.price %>€ / day</p>
-          <div class="icon">
-            <%= link_to edit_ski_path(ski) do %>
-              <i class="fa fa-edit"></i>
-            <% end %>
-            <%= link_to ski_path(ski), method: :delete do %>
-              <i class="fa fa-trash" ></i>
-            <% end %>
+          <div class="card-myskis-infos">
+            <h2><%= ski.types %></h2>
+            <p><strong><%= ski.city %></strong></p>
+            <p><%= ski.price %>€ / day</p>
+            <div class="icon">
+              <%= link_to edit_ski_path(ski) do %>
+                <i class="fa fa-edit"></i>
+              <% end %>
+              <%= link_to ski_path(ski), method: :delete do %>
+                <i class="fa fa-trash" ></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -29,11 +30,11 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row d-flex justify-content-beetween">
     <h2 class="mt-5">Reservations</h2>
     <% @mybookings.each do |booking| %>
-      <div class="col-6">
+      <div class="col-lg-6 col-sm-12 col-12">
           <div class="container-booking mt-3">
             <div class="booking-image">
               <%= link_to ski_path(booking) do %>

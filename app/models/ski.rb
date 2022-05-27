@@ -9,6 +9,8 @@ class Ski < ApplicationRecord
   geocoded_by :city
   after_validation :geocode, if: :will_save_change_to_city?
 
+  SKITYPE = ['Alpine skis', 'Downhill skis', 'Cross-country skis', 'Nordic skis', 'Snowboard']
+
   def average
     average = 0
     reviews.each do |review|

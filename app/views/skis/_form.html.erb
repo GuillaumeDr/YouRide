@@ -1,11 +1,13 @@
 
 
   <%= simple_form_for(ski) do |f| %>
-    <%= f.select :types, [ 'Alpine skis', 'Downhill skis', 'Cross-country skis', 'Nordic skis', 'Snowboard' ], :prompt => 'Select One' %>
-    <%= f.input :poles %>
-    <%= f.input :price %>
-    <%= f.input :size %>
+    <%= f.input :types, collection: Ski::SKITYPE, :prompt => 'Select One' %>
+    <%= f.input :size, label: "Size (cm)" %>
+    <%= f.input :poles, as: :radio_buttons, wrapper: :vertical_collection_inline, label: "Poles includes" %>
     <%= f.input :city %>
+    <%= f.input :price, label: "Price / day (euros)" %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit class: "btn btn-dark" %>
+    <div class="d-grid gap-2">
+      <%= f.submit class: "btn btn-search" %>
+    </div>
   <% end %>

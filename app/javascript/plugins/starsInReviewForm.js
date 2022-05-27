@@ -39,13 +39,13 @@ const dynamicRating = () => {
         }
       });
     });
-    starsReview.addEventListener("mouseout", (event) => {
-      if (!(document.querySelector(".selected"))) {
-        stars.forEach((star) => {
-          star.className = "review-rating far fa-star"
-        });
-      }
-    });
+    // starsReview.addEventListener("mouseout", (event) => {
+    //   if (!(document.querySelector(".selected"))) {
+    //     stars.forEach((star) => {
+    //       star.className = "review-rating far fa-star"
+    //     });
+    //   }
+    // });
   };
 };
 

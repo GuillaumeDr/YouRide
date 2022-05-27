@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.ski_id = params[:ski_id]
     if @booking.save
-      redirect_to ski_path(@booking.ski)
+      redirect_to reservations_path
     else
       render template: "skis/show"
     end

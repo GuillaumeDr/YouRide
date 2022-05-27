@@ -16,6 +16,6 @@ class Ski < ApplicationRecord
     reviews.each do |review|
       average += review.rating
     end
-    average /= reviews.count if average > 0
+    (average /= reviews.count).round(1) if average > 0
   end
 end

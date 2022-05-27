@@ -33,6 +33,13 @@ class SkisController < ApplicationController
   def show
     @booking = Booking.new
     @review = Review.new
+    @bookings = @ski.bookings
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.start_date,
+        to: booking.end_date
+      }
+    end
   end
 
   def new

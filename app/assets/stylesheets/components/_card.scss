@@ -126,7 +126,7 @@
     padding: 22px;
     .grid-info {
       display: grid;
-      grid-template-columns: 4fr 3fr;
+      grid-template-columns: 4fr 4fr;
       grid-gap: 22px;
     }
     .product-photo img {
@@ -137,15 +137,22 @@
   .product-info {
     padding: 22px;
     margin-top: 100px;
+    h4 {
+      font-weight: bold;
+    }
   }
 
   .booking {
     padding: 22px;
     border-left: solid 1px gray;
+    position: sticky;
+    top: 80px;
+    height: 600px;
+    .price-by-day {
+      font-weight: bold;
+    }
   }
 }
-
-
 
 ////////////////////////////////////
 .card-myskis {
@@ -200,26 +207,25 @@
 }
 
 ///////////////////////////////////////
-.card-show {
-  background-color: white;
-  overflow: hidden;
-  height: 95%;
-  display: flex;
-  align-items: center;
-  margin: 0px 0px;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 16px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  color: BLACK;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  position: relative;
-  margin: 50px 0px;
-}
-
+// .card-show {
+//   background-color: white;
+//   overflow: hidden;
+//   height: 95%;
+//   display: flex;
+//   align-items: center;
+//   margin: 0px 0px;
+//   padding: 10px;
+//   justify-content: center;
+//   align-items: center;
+//   font-weight: bold;
+//   font-size: 16px;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   color: BLACK;
+//   border-radius: 5px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   position: relative;
+//   margin: 50px 0px;
+// }
 
 /////////////////////////////
 
@@ -267,14 +273,12 @@
 
 }
 
-
 .container-booking .booking-details > p {
 	text-align: left;
 	font-size: 13px;
 	color: #112B3C;
   margin-top: 0px;
   margin-bottom: 5px;
-
 }
 
 .booking-image {

@@ -28,9 +28,9 @@
             <div class="booking-details">
               <h2><strong><%= reservation.ski.types%>, <%= reservation.ski.city%> n°<%= reservation.ski.id%> </strong><br>
               # Demand <%= reservation.id%></h2>
-              <p>Status: <%= reservation.status %></p>
               <p>Owner: <%= reservation.ski.user.first_name %> <%= reservation.ski.user.last_name %></p>
               <p>From <%= reservation.start_date %> to <%= reservation.end_date %></p>
+              <p>Status: <strong><%= reservation.status %></strong></p>
             </div>
           </div>
       </div>
